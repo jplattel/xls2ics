@@ -94,6 +94,7 @@ def download_ics(encoded_ics=False):
 			cal.add_component(event)
 
 	response.set_header('Content-Type', 'text/calendar')
+	response.set_header("Content-Disposition", "attachment; filename=afspraken.ics");
 
 	ics = cal.to_ical()
 	return ics
@@ -114,14 +115,14 @@ def view_ics(encoded_ics=False):
 			dag = xldate_as_datetime(int(e[1]), 0)
 			starttijd = dag + timedelta(minutes=720)
 			eindetijd = starttijd + timedelta(minutes=15)
-			data.append({'summary': description, 'dtstart': starttijd, 'dtend': eindetijd})
+			data.append({'summary': description, 'dtstart': starttijd, 'dtend': eindetijd, 'dag': e[1], 'ics_start': '0.5', 'ics_eind':'0.01041666666667'})
 
 		elif len(e) is 4:
 			description = e[0]
 			dag = xldate_as_datetime(int(e[1]), 0)
 			starttijd = dag + xlminutes_to_normal_minutes(float(e[2].replace(',','.')))
 			eindetijd = starttijd + xlminutes_to_normal_minutes(float(e[3].replace(',','.')))
-			data.append({'summary': description, 'dtstart': starttijd, 'dtend': eindetijd})			
+			data.append({'summary': description, 'dtstart': starttijd, 'dtend': eindetijd, 'dag': e[1], 'ics_start': e[2], 'ics_eind': e[3]})			
 
 	return {'data': data, 'encoded_ics': encoded_ics}
 

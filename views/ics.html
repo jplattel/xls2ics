@@ -2,7 +2,7 @@
 
 <div class="container" id="page">
 
-	<div class="col-md-6">
+	<div class="col-md-8">
 	
 	<h1>Afspraken</h1>
 
@@ -22,6 +22,7 @@
 			<td>{{ e.summary }}</td>
 			<td>{{ e.dtstart }}</td>
 			<td>{{ e.dtend }}</td>
+			<td><a href="/ics/{{ e.summary }};{{ e.dag }};{{ e.ics_start }};{{ e.ics_eind }}">Download</a></td>
 		</tr>
 		{% endfor %}
 		
