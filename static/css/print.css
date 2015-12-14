@@ -1,0 +1,27 @@
+@media print{
+
+body{
+	font-size: 10px;
+}
+#page{
+	margin: 0px;
+}
+
+table td{
+	padding: 0px;
+}
+
+.btn{
+	display: none;
+}
+.hide-for-print{
+	display: none;
+}
+.show-for-print{
+	display: inherit;
+}
+textarea{
+   resize: none;
+}
+
+}

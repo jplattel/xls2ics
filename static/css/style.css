@@ -1,0 +1,9 @@
+.show-for-print{
+	display: none;
+}
+#page{
+	margin-top: 60px;
+}
+.textarea-input{
+	font-size: 11px;
+}
