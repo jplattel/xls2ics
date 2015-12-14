@@ -4,9 +4,33 @@
 
 	<div class="col-md-6">
 	
-	<h1>ICS</h1>
+	<h1>Afspraken</h1>
 
-	<pre>{{ ics }}</pre>
+	<p>Deze afspraken zijn gevonden: </p>
+
+	<table class="table table-striped">
+		
+		<thead>
+			<th>Description</th>
+			<th>Start Tijd</th>
+			<th>Eind Tijd</th>
+		</thead>
+
+		
+		{% for e in data %}
+		<tr>
+			<td>{{ e.summary }}</td>
+			<td>{{ e.dtstart }}</td>
+			<td>{{ e.dtend }}</td>
+		</tr>
+		{% endfor %}
+		
+
+	</table>
+
+	<p>Klik hieronder op de grote groene knop om alle afspraken in calender formaat te downloaden: (geschikt voor Outlook!)</p>
+
+	<a class="btn btn-large btn-success" href="/ics/{{ encoded_ics }}">Download ICS</a>
 
 	</div>
 
